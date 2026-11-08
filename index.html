@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IncluiPro | Talento sem barreiras</title>
+<meta name="description" content="Plataforma acessível que conecta profissionais com deficiência a empresas comprometidas com inclusão e impacto social.">
+<meta name="theme-color" content="#2446A8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=7">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+<div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
+
+<!-- ================= Header ================= -->
+<header class="cabecalho">
+  <div class="wrap cabecalho-linha">
+    <a href="#main-content" class="logo">
+      <span class="logo-icone" aria-hidden="true">i+</span>
+      <span>Inclui<span class="logo-destaque">Pro</span></span>
+    </a>
+
+    <nav class="menu-principal" aria-label="Navegação principal">
+      <a href="vagas.html">Vagas</a>
+      <a href="#empresas">Empresas</a>
+      <a href="#leis-pcd">Leis e direitos PcD</a>
+      <a href="#como-funciona">Como funciona</a>
+    </nav>
+
+    <div class="botoes-topo">
+      <a href="entrar.html" class="btn btn-ghost">Entrar</a>
+      <a href="cadastro.html" class="btn btn-primary">Cadastrar grátis</a>
+    </div>
+
+    <button class="botao-menu botao-secundario" id="botao-menu" style="margin-top:0;" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-celular">☰ Menu</button>
+  </div>
+  <nav class="menu-celular" id="menu-celular" aria-label="Navegação móvel">
+    <a href="vagas.html">Vagas</a>
+    <a href="#empresas">Empresas</a>
+    <a href="#acessibilidade">Acessibilidade</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="entrar.html" class="btn btn-ghost" style="text-align:center;">Entrar</a>
+    <a href="cadastro.html" class="btn btn-primary">Cadastrar grátis</a>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- ================= Hero ================= -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title" style="border-top:none;">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Empregabilidade inclusiva • Impacto real</span>
+        <h1 class="hero-title" id="hero-title">Talento não tem limite. <span class="accent">Oportunidade também não deveria ter.</span></h1>
+        <p class="hero-sub">Conectamos profissionais PCD a empresas comprometidas com inclusão real. Todo o cabecalho foi construído para funcionar com leitor de tela, navegação por teclado e alto contraste.</p>
+
+        <form class="search-row" role="search" onsubmit="location.href='vagas.html?q='+encodeURIComponent(document.getElementById('job-search').value);return false;">
+          <label for="job-search">Buscar cargo, empresa ou habilidade</label>
+          <div class="search-input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <input id="job-search" type="text" placeholder="Cargo, empresa ou habilidade…">
+          </div>
+          <button type="submit" class="btn btn-amber">Buscar vagas</button>
+        </form>
+
+        <div class="stats-row" aria-label="Números da plataforma">
+          <div><div class="stat-value">12.400+</div><div class="stat-label">Profissionais cadastrados</div></div>
+          <div><div class="stat-value">840+</div><div class="stat-label">Empresas parceiras</div></div>
+          <div><div class="stat-value">3.200+</div><div class="stat-label">Contratações realizadas</div></div>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <img src="https://img.freepik.com/fotos-premium/trabalho-em-equipe-em-escritorios-inclusivos-diversos-gerente-de-projeto-conversa-com-mulher-com-deficiencia-com-protese_1313853-77019.jpg" alt="Profissional PCD trabalhando com notebook em escritório iluminado">
+        <div class="hero-badge">
+          <span class="avatar">N</span>
+          <div>
+            <strong>Nubank te convidou</strong>
+            <span class="sub">Analista de Dados · Remoto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Partners ================= -->
+  <section class="partners" aria-label="Empresas parceiras" style="padding-top:20px;padding-bottom:20px;">
+    <div class="wrap partners-inner">
+      <a href="empresas.html" class="tag">Empresas parceiras →</a>
+      <div class="names">
+        <a href="empresa.html?id=nubank">Nubank</a><a href="empresa.html?id=ifood">iFood</a><a href="empresa.html?id=totvs">Totvs</a><a href="empresa.html?id=ambev">Ambev</a><a href="empresa.html?id=itau">Itaú</a><a href="empresa.html?id=magazine-luiza">Magazine Luiza</a><a href="empresa.html?id=mercado-livre">Mercado Livre</a><a href="empresa.html?id=vivo">Vivo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Leis e direitos PcD ================= -->
+  <section id="leis-pcd" aria-labelledby="pcd-laws-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">Empregabilidade PcD</span>
+          <h2 class="section-title" id="pcd-laws-title">Leis e direitos no mercado de trabalho</h2>
+        </div>
+        <a href="leis.html" class="link-more">Ver leis e direitos →</a>
+      </div>
+
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon" aria-hidden="true">%</div>
+          <h3>Lei de Cotas — Lei nº 8.213/1991</h3>
+          <p>Empresas com 100 ou mais empregados devem preencher de 2% a 5% de seus cargos com pessoas com deficiência ou beneficiários reabilitados.</p>
+          <span class="chip">Art. 93</span>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon" aria-hidden="true">⚖</div>
+          <h3>Igualdade de oportunidades</h3>
+          <p>A pessoa com deficiência tem direito ao trabalho em igualdade de oportunidades, com condições justas e favoráveis e sem discriminação.</p>
+          <span class="chip">Lei nº 13.146/2015</span>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon" aria-hidden="true">♿</div>
+          <h3>Ambiente acessível e inclusivo</h3>
+          <p>O ambiente de trabalho deve considerar acessibilidade, tecnologia assistiva e adaptações razoáveis conforme as necessidades do trabalhador.</p>
+          <span class="chip">LBI · Art. 37</span>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon" aria-hidden="true">✓</div>
+          <h3>Proibição de discriminação</h3>
+          <p>É vedada a discriminação relacionada à deficiência nas etapas de recrutamento, seleção, contratação, permanência e crescimento profissional.</p>
+          <span class="chip">LBI · Art. 34</span>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon" aria-hidden="true">↗</div>
+          <h3>Desenvolvimento profissional</h3>
+          <p>A pessoa com deficiência deve ter igualdade de oportunidades em cursos, treinamentos, capacitação, planos de carreira e promoções.</p>
+          <span class="chip">LBI · Art. 34</span>
+        </div>
+
+        <div class="feat-card">
+          <div class="feat-icon" aria-hidden="true">i</div>
+          <h3>Informação para candidatos e empresas</h3>
+          <p>A plataforma apresenta informações sobre direitos trabalhistas PcD para facilitar o acesso a oportunidades e apoiar práticas de inclusão.</p>
+          <span class="chip">Informação e inclusão</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Como funciona ================= -->
+  <section id="como-funciona" aria-labelledby="steps-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">Como funciona</span>
+          <h2 class="section-title" id="steps-title">Três passos para a sua vaga ideal</h2>
+        </div>
+        <a href="como-funciona.html" class="link-more">Ver guia completo →</a>
+      </div>
+
+      <div class="steps-grid" role="list">
+        <button class="step-card active" role="listitem" data-step="0">
+          <div class="step-num">01</div>
+          <h3>Crie seu perfil</h3>
+          <p>Cadastre-se gratuitamente e informe suas experiências, habilidades e necessidades de acessibilidade para que as vagas certas encontrem você.</p>
+        </button>
+        <button class="step-card" role="listitem" data-step="1">
+          <div class="step-num">02</div>
+          <h3>Explore vagas inclusivas</h3>
+          <p>Navegue por oportunidades em empresas comprometidas com diversidade real, com filtros por tipo de adaptação oferecida.</p>
+        </button>
+        <button class="step-card" role="listitem" data-step="2">
+          <div class="step-num">03</div>
+          <h3>Conecte-se e conquiste</h3>
+          <p>Candidate-se com um clique, acompanhe seu processo seletivo e receba suporte especializado em cada etapa.</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Recomendadas para o perfil ================= -->
+  <section id="recomendadas" aria-labelledby="reco-title" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="section-tag">Para você</span><h2 class="section-title" id="reco-title">Vagas recomendadas para o seu perfil</h2></div>
+        <a href="vagas.html" class="link-more">Ver todas as vagas →</a>
+      </div>
+      <div id="reco-msg"></div>
+      <div id="reco-lista" class="jobs-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= Vagas ================= -->
+  <section id="vagas" aria-labelledby="jobs-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">Vagas em destaque</span>
+          <h2 class="section-title" id="jobs-title">Oportunidades para você</h2>
+        </div>
+        <a href="vagas.html" class="link-more">Ver todas as vagas →</a>
+      </div>
+
+      <div class="jobs-grid">
+        <a href="vagas.html?vaga=1" class="job-card">
+          <div class="job-top">
+            <span class="job-logo" style="background:#0E4433;">N</span>
+            <div><div class="job-company">Nubank</div><div class="job-title">Analista de Dados Pleno</div></div>
+            <span class="job-type">CLT</span>
+          </div>
+          <div class="job-meta"><span>São Paulo, SP · Remoto</span><span class="salary">R$ 7.000 – 9.000</span></div>
+          <div class="job-tags"><span class="tag">Dados</span><span class="tag">SQL</span><span class="tag">Python</span><span class="apply">Candidatar →</span></div>
+        </a>
+        <a href="vagas.html?vaga=2" class="job-card">
+          <div class="job-top">
+            <span class="job-logo" style="background:#23875F;">i</span>
+            <div><div class="job-company">iFood</div><div class="job-title">UX Designer</div></div>
+            <span class="job-type">CLT</span>
+          </div>
+          <div class="job-meta"><span>Campinas, SP · Híbrido</span><span class="salary">R$ 6.500 – 8.500</span></div>
+          <div class="job-tags"><span class="tag">Figma</span><span class="tag">Design</span><span class="tag">Pesquisa</span><span class="apply">Candidatar →</span></div>
+        </a>
+        <a href="vagas.html?vaga=3" class="job-card">
+          <div class="job-top">
+            <span class="job-logo" style="background:#145C43;">T</span>
+            <div><div class="job-company">Totvs</div><div class="job-title">Desenvolvedor(a) Front-end</div></div>
+            <span class="job-type">CLT</span>
+          </div>
+          <div class="job-meta"><span>Remoto · Nacional</span><span class="salary">R$ 8.000 – 11.000</span></div>
+          <div class="job-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Acessibilidade</span><span class="apply">Candidatar →</span></div>
+        </a>
+        <a href="vagas.html?vaga=4" class="job-card">
+          <div class="job-top">
+            <span class="job-logo" style="background:#2F9E6F;">A</span>
+            <div><div class="job-company">Ambev</div><div class="job-title">Coordenador(a) de Logística</div></div>
+            <span class="job-type">CLT</span>
+          </div>
+          <div class="job-meta"><span>Jaguariúna, SP · Presencial</span><span class="salary">R$ 9.000 – 12.000</span></div>
+          <div class="job-tags"><span class="tag">Logística</span><span class="tag">Gestão</span><span class="tag">Supply Chain</span><span class="apply">Candidatar →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Testimonials ================= -->
+  <section aria-labelledby="testi-title">
+    <div class="wrap">
+      <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;">
+        <span class="section-tag">Histórias reais</span>
+        <h2 class="section-title" id="testi-title" style="max-width:600px;">Quem já encontrou seu lugar aqui</h2>
+      </div>
+
+      <div class="testi-grid">
+        <blockquote class="testi-card">
+          <p class="quote">"Depois de anos enfrentando barreiras no mercado, encontrei aqui uma empresa que me viu como profissional primeiro. Hoje estou há 2 anos no meu melhor emprego."</p>
+          <footer class="testi-foot">
+            <span class="testi-avatar" style="background:#145C43;">MO</span>
+            <div><div class="testi-name">Mariana Oliveira</div><div class="testi-role">Analista de Marketing · São Paulo</div></div>
+          </footer>
+        </blockquote>
+        <blockquote class="testi-card">
+          <p class="quote">"A plataforma foi fundamental para minha recolocação. O suporte com leitor de tela e o áudio de apoio fizeram toda a diferença no meu processo."</p>
+          <footer class="testi-foot">
+            <span class="testi-avatar" style="background:#2F9E6F;">CS</span>
+            <div><div class="testi-name">Carlos Eduardo Santos</div><div class="testi-role">Dev. Full-stack · Recife</div></div>
+          </footer>
+        </blockquote>
+        <blockquote class="testi-card">
+          <p class="quote">"Não acreditava que conseguiria uma vaga remota que se adaptasse às minhas necessidades. A IncluiPro me provou que era possível."</p>
+          <footer class="testi-foot">
+            <span class="testi-avatar" style="background:#0E4433;">PF</span>
+            <div><div class="testi-name">Priya Ferreira</div><div class="testi-role">Assistente Administrativo · Belo Horizonte</div></div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA banner ================= -->
+  <div class="cta-banner-wrap">
+    <div class="cta-banner">
+      <div>
+        <h2>Pronto para dar o próximo passo?</h2>
+        <p>Cadastre-se gratuitamente e comece a receber oportunidades hoje.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="cadastro.html" class="btn btn-amber">Quero me cadastrar</a>
+        <a href="sobre.html?assunto=empresa#contato" class="btn btn-outline-light" id="empresas">Sou empresa</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+<br><br>
+<!-- ================= Footer ================= -->
+<footer class="rodape-cabecalho">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo logo-rodape"><span class="logo-icone" aria-hidden="true">i+</span><span>Inclui<span class="logo-destaque">Pro</span></span></div>
+        <p style="font-size:0.9rem;color:var(--color-muted);">Conectando talentos PCD a empresas que praticam inclusão de verdade — em uma plataforma pensada para ser usada por qualquer pessoa, de qualquer forma.</p>
+      </div>
+      <div><h4>Para profissionais</h4><ul><li><a href="vagas.html">Buscar vagas</a></li><li><a href="empresas.html">Empresas</a></li><li><a href="perfil.html">Criar perfil</a></li><li><a href="como-funciona.html">Como funciona</a></li></ul></div>
+      <div><h4>PIXEL DEVS</h4><ul><li><a href="sobre.html">Sobre nós</a></li><li><a href="sobre.html#contato">Entrar em contato</a></li><li><a href="sobre.html#integrantes">Integrantes</a></li><li><a href="sobre.html#projeto">Sobre o projeto</a></li></ul></div>
+      <div><h4>Acessibilidade e direitos</h4><ul><li><a href="leis.html">Leis e direitos PcD</a></li><li><a href="leis.html#acessibilidade">Recursos disponíveis</a></li><li><a href="leis.html#declaracao">Declaração de acessibilidade</a></li><li><a href="sobre.html?assunto=barreira#contato">Reportar barreira</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 IncluiPro. Todos os direitos reservados.</span>
+      <div class="links"><a href="sobre.html#contato">Fale com o suporte</a><a href="como-funciona.html#privacidade">Privacidade</a><a href="como-funciona.html#termos">Termos</a><a href="leis.html#declaracao">Acessibilidade</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= Botão flutuante de acessibilidade ================= -->
+<button class="botao-flutuante-acessibilidade" id="abrir-painel-acessibilidade" aria-haspopup="dialog" aria-expanded="false" aria-controls="painel-acessibilidade">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <circle cx="12" cy="4.5" r="1.6" fill="currentColor" stroke="none"/>
+    <path stroke-linecap="round" d="M4 8.5c2.7 1 5.3 1.5 8 1.5s5.3-.5 8-1.5M12 10v5M9 21l2-6h2l2 6M8.5 13.5L6 16M15.5 13.5L18 16"/>
+  </svg>
+  <span class="fab-text">Abrir opções de acessibilidade</span>
+</button>
+
+<!-- ================= Painel lateral de acessibilidade ================= -->
+<div class="fundo-escurecido" id="fundo-escurecido"></div>
+<div class="painel-acessibilidade" id="painel-acessibilidade" role="dialog" aria-modal="true" aria-labelledby="titulo-painel-acessibilidade">
+  <div class="painel-acessibilidade-cabecalho">
+    <div>
+      <h2 id="titulo-painel-acessibilidade">Acessibilidade</h2>
+      <p>Ajuste o site do seu jeito</p>
+    </div>
+    <button class="botao-fechar-painel" id="botao-fechar-painel" aria-label="Fechar painel de acessibilidade">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <div class="painel-acessibilidade-corpo">
+
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9v6M9 5v14M15 5v14M20 9v6"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Tamanho da letra</div>
+        <div class="item-descricao">Deixe o texto maior ou menor em todas as páginas.</div>
+        <div class="controle-tamanho-letra" role="group" aria-label="Ajustar tamanho da letra">
+          <button id="diminuir-letra" aria-label="Diminuir letra">A−</button>
+          <span class="valor-tamanho-letra" id="valor-letra">100%</span>
+          <button id="aumentar-letra" aria-label="Aumentar letra">A+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Alto contraste</div>
+        <div class="item-descricao">Fundo preto e texto amarelo, mais fácil de ler.</div>
+      </div>
+      <button class="interruptor item-controle" id="botao-contraste" aria-pressed="false" aria-label="Ativar alto contraste"></button>
+    </div>
+
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 11v4c0 2 4 4 9 4s9-2 9-4v-4"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Menos movimento</div>
+        <div class="item-descricao">Desliga animações e rolagem suave da página.</div>
+      </div>
+      <button class="interruptor item-controle" id="botao-movimento" aria-pressed="false" aria-label="Reduzir movimento"></button>
+    </div>
+
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v11M8 8a4 4 0 108 0M5 11a7 7 0 0014 0M9 21h6"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Ouvir a página</div>
+        <div class="item-descricao">O computador lê o conteúdo em voz alta, em português.</div>
+        <button class="botao-secundario" id="botao-ouvir" aria-pressed="false">🔊 Começar a ouvir</button>
+      </div>
+    </div>
+
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 11V7a5 5 0 0110 0v4M5 11h14l-1 10H6L5 11z"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Tradução em Libras</div>
+        <div class="item-descricao">Um intérprete virtual traduz o texto do site para Libras (VLibras).</div>
+        <button class="botao-secundario" id="botao-libras">🤟 Abrir tradutor de Libras</button>
+      </div>
+    </div>
+
+    <div class="item-acessibilidade" style="border-bottom:none;">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h1M9 10h1M12 10h1M15 10h1M6 14h9"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Atalhos do teclado</div>
+        <div class="item-descricao">Veja como navegar pelo site sem usar o mouse.</div>
+        <button class="botao-secundario" id="botao-atalhos">⌨ Ver atalhos</button>
+      </div>
+    </div>
+
+    <button class="botao-restaurar-padrao" id="botao-restaurar-padrao">Restaurar tudo ao padrão</button>
+  </div>
+</div>
+
+<!-- ================= Keyboard shortcuts modal ================= -->
+<div class="janela-fundo" id="janela-atalhos" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title">
+  <div class="janela-caixa">
+    <h2 id="shortcuts-title">Atalhos de teclado</h2>
+    <p class="hint">Use estes atalhos em qualquer parte da página.</p>
+    <div class="linha-atalho"><span>Ir para o início</span><kbd>Alt + 1</kbd></div>
+    <div class="linha-atalho"><span>Ir para vagas</span><kbd>Alt + 2</kbd></div>
+    <div class="linha-atalho"><span>Ir para acessibilidade</span><kbd>Alt + 3</kbd></div>
+    <div class="linha-atalho"><span>Abrir painel de acessibilidade</span><kbd>Alt + A</kbd></div>
+    <div class="linha-atalho"><span>Alternar alto contraste</span><kbd>Alt + C</kbd></div>
+    <div class="linha-atalho"><span>Ouvir a página</span><kbd>Alt + S</kbd></div>
+    <div class="linha-atalho"><span>Abrir esta ajuda</span><kbd>?</kbd></div>
+    <div class="linha-atalho"><span>Fechar janela aberta</span><kbd>Esc</kbd></div>
+    <button class="janela-fechar-botao" id="fechar-atalhos">Fechar</button>
+  </div>
+</div>
+
+<script src="js/nav.js?v=7"></script>
+<script src="js/script.js?v=7"></script>
+<script src="js/app.js?v=7"></script>
+</body>
+</html>
