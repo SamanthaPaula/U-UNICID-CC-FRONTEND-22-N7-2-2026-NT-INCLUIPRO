@@ -3,7 +3,7 @@
 > Desenvolvida pela equipe **Pixel Devs**
 ## 1. Identificação
 
-| Campo | Informação 
+| Campo | Informação
 |---|---|
 | **Nome do site** | IncluiPro|
 | **Nome da equipe** | Pixel Devs |
