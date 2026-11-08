@@ -91,7 +91,7 @@ Tipos de deficiência considerados na plataforma:
 | 4 | Cadastro | `cadastro.html` | Livre | Criação de conta |
 | 5 | Confirmar e-mail | `verificar.html` | Livre | Digitação do código de 6 dígitos enviado por e-mail |
 | 6 | Entrar | `entrar.html` | Livre | Login |
-| 7 | Meu painel | `painel.html` | Livre* | Resumo da conta, vagas recomendadas e progresso do perfil |
+| 7 | Meu painel | `painel.html` | Login | Resumo da conta, vagas recomendadas e progresso do perfil |
 | 8 | Meu perfil | `perfil.html` |  Login | Currículo, objetivo profissional, formação, habilidades e perfil de acessibilidade |
 | 9 | Vagas | `vagas.html` | Login | Lista, recomendações, busca, filtros e candidatura |
 | 10 | Empresas | `empresas.html` | Login | Lista de empresas com busca |
