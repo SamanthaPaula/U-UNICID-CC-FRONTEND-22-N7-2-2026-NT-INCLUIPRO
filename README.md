@@ -64,15 +64,7 @@ Tipos de deficiência considerados na plataforma:
 - Deficiência física
 - Deficiência intelectual
 - Autismo (TEA)
-- Deficiência múltipla
-
-**Públicos secundários:**
-
-- Empresas que desejam divulgar vagas inclusivas;
-- Profissionais de recrutamento e seleção;
-- Pessoas interessadas em conhecer direitos e legislação ligados à empregabilidade PcD.
-
----
+- Deficiência múltipla-
 
 
 ## 6. Tecnologias e arquitetura
@@ -107,10 +99,6 @@ Tipos de deficiência considerados na plataforma:
 | 12 | Minhas vagas | `candidaturas.html` | Login | Vagas salvas, candidaturas, entrevistas e arquivadas |
 | 13 | Mensagens | `mensagens.html` | Login | Conversas com as empresas |
 | 14 | Leis e direitos PcD | `leis.html` | Login | Direitos, Lei de Cotas, inclusão profissional e fontes oficiais |
-
-\* O `painel.html` não está marcado como protegido (`data-protegida`) e não aparece no menu principal. 
-
-**Arquivo auxiliar (não faz parte do produto):** `limpar-dados-teste.html` apaga contas e dados de teste do navegador. **Deve ser removido antes da publicação final.**
 ```
 ## 7. Estrutura de arquivos
 
