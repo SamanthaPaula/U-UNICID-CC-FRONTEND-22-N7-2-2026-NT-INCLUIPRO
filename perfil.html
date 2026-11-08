@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meu perfil | IncluiPro</title>
+
+<meta name="theme-color" content="#2446A8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=7">
+</head>
+<body data-page="perfil" data-protegida>
+
+<a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+<div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
+
+<!-- ================= Header ================= -->
+<header class="cabecalho">
+  <div class="wrap cabecalho-linha">
+    <a href="index.html" class="logo">
+      <span class="logo-icone" aria-hidden="true">i+</span>
+      <span>Inclui<span class="logo-destaque">Pro</span></span>
+    </a>
+    <nav class="menu-principal" aria-label="Navegação principal">
+      <a href="vagas.html">Vagas</a>
+      <a href="index.html#empresas">Empresas</a>
+      <a href="index.html#leis-pcd">Leis e direitos PcD</a>
+      <a href="index.html#como-funciona">Como funciona</a>
+    </nav>
+    <div class="botoes-topo">
+      <a href="entrar.html" class="btn btn-ghost">Entrar</a>
+      <a href="cadastro.html" class="btn btn-primary">Cadastrar grátis</a>
+    </div>
+    <button class="botao-menu botao-secundario" id="botao-menu" style="margin-top:0;" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-celular">☰ Menu</button>
+  </div>
+  <nav class="menu-celular" id="menu-celular" aria-label="Navegação móvel">
+    <a href="vagas.html">Vagas</a>
+    <a href="index.html#empresas">Empresas</a>
+    <a href="cadastro.html" class="btn btn-primary">Cadastrar grátis</a>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section style="padding:40px 0 72px;border-top:none;background:var(--color-surface-soft);">
+    <div class="wrap perfil-wrap">
+      <h1 class="auth-title" style="font-size:clamp(1.6rem,3vw,2.2rem);">Meu perfil e currículo</h1>
+      <p class="auth-sub"><strong id="conta-nome"></strong> · <span id="conta-email"></span></p>
+      <div class="panel-card">
+        <div class="profile-progress-bar" id="progresso-barra" role="progressbar" aria-label="Perfil completo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span style="width:0%;"></span></div>
+        <p style="font-weight:700" id="progresso-texto">0% completo</p>
+        <p style="font-size:.88rem" id="perfil-falta"></p>
+      </div>
+      <div class="panel-card">
+        <h2>Currículo</h2>
+        <div class="cv-box"><div id="cv-info"></div></div>
+        <div id="cv-status" class="form-status" role="status"></div>
+        <div class="form-group"><label for="cv-arquivo">Enviar ou substituir currículo (PDF, DOC ou DOCX, até 5 MB)</label><div class="input-wrap"><input type="file" id="cv-arquivo" accept=".pdf,.doc,.docx"></div></div>
+      </div>
+      <form id="perfil-form" novalidate>
+        <div id="perfil-status" class="form-status" role="status" tabindex="-1"></div>
+
+        <!-- ============ 1. CONTATO E ENDEREÇO ============ -->
+        <div class="panel-card">
+          <h2>Contato e endereço</h2>
+          <div class="form-group"><label for="p-telefone">Telefone com DDD</label><div class="input-wrap"><input type="tel" id="p-telefone" autocomplete="tel" inputmode="tel" placeholder="(11) 91234-5678" required></div></div>
+          <div class="form-group"><label for="p-cep">CEP</label><div class="input-wrap"><input type="text" id="p-cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="00000-000" aria-describedby="cep-status"></div>
+            <span class="hint-text" id="cep-status" role="status" aria-live="polite">Digite o CEP e preenchemos o endereço para você.</span></div>
+          <div class="form-group"><label for="p-logradouro">Rua / Avenida</label><div class="input-wrap"><input type="text" id="p-logradouro" autocomplete="address-line1"></div></div>
+          <div class="perfil-cols">
+            <div class="form-group"><label for="p-numero">Número</label><div class="input-wrap"><input type="text" id="p-numero" inputmode="numeric" maxlength="10" autocomplete="address-line2"></div></div>
+            <div class="form-group"><label for="p-complemento">Complemento (opcional)</label><div class="input-wrap"><input type="text" id="p-complemento" maxlength="60" placeholder="Apto, bloco, casa..."></div></div>
+          </div>
+          <div class="form-group"><label for="p-bairro">Bairro</label><div class="input-wrap"><input type="text" id="p-bairro"></div></div>
+          <div class="perfil-cols">
+            <div class="form-group"><label for="p-cidade">Cidade</label><div class="input-wrap"><input type="text" id="p-cidade" autocomplete="address-level2" required></div></div>
+            <div class="form-group"><label for="p-uf">Estado (UF)</label><div class="input-wrap"><input type="text" id="p-uf" maxlength="2" autocomplete="address-level1" placeholder="SP"></div></div>
+          </div>
+          <p class="privacidade" id="end-resumo">Seu endereço completo aparecerá aqui.</p>
+        </div>
+
+        <!-- ============ 2. OBJETIVO PROFISSIONAL ============ -->
+        <div class="panel-card">
+          <h2>Objetivo profissional</h2>
+          <div class="form-group"><label for="p-area">Área ou cargo de interesse</label><div class="input-wrap"><input type="text" id="p-area" required></div></div>
+          <div class="form-group"><label for="p-resumo">Resumo profissional</label><div class="input-wrap"><textarea id="p-resumo" rows="4" maxlength="800" placeholder="Conte em poucas linhas quem você é e o que busca."></textarea></div></div>
+          <fieldset><legend>Modelo de trabalho preferido</legend><div id="p-modelos"></div></fieldset>
+          <div class="perfil-cols">
+            <div class="form-group"><label for="p-disponibilidade">Disponibilidade para começar</label><select id="p-disponibilidade"><option value="">Selecione</option><option>Imediata</option><option>Em até 15 dias</option><option>Em até 30 dias</option><option>Mais de 30 dias</option></select></div>
+            <div class="form-group"><label for="p-pretensao">Pretensão salarial (opcional)</label><div class="input-wrap"><input type="text" id="p-pretensao" inputmode="numeric" placeholder="Ex.: 3500"></div></div>
+          </div>
+          <div class="form-group"><label for="p-linkedin">LinkedIn (opcional)</label><div class="input-wrap"><input type="url" id="p-linkedin" placeholder="https://www.linkedin.com/in/seu-perfil"></div></div>
+          <div class="form-group"><label for="p-portfolio">Portfólio ou site (opcional)</label><div class="input-wrap"><input type="url" id="p-portfolio" placeholder="https://"></div></div>
+        </div>
+
+        <!-- ============ 3. FORMAÇÃO ============ -->
+        <div class="panel-card">
+          <h2>Formação acadêmica</h2>
+          <div class="form-group"><label for="p-escolaridade">Maior nível de escolaridade</label><select id="p-escolaridade"><option value="">Selecione</option><option>Ensino fundamental</option><option>Ensino médio</option><option>Curso técnico</option><option>Superior incompleto</option><option>Superior completo</option><option>Pós-graduação</option></select></div>
+          <div id="lista-formacoes"></div>
+        </div>
+
+        <!-- ============ 4. EXPERIÊNCIA ============ -->
+        <div class="panel-card">
+          <h2>Experiência profissional</h2>
+          <p class="hint-text" style="margin-bottom:12px">Sem experiência ainda? Tudo bem, você pode deixar em branco e destacar seus cursos e habilidades.</p>
+          <div id="lista-experiencias"></div>
+        </div>
+
+        <!-- ============ 5. HABILIDADES E COMPETÊNCIAS ============ -->
+        <div class="panel-card">
+          <h2>Habilidades e competências</h2>
+          <div id="chips-habilidades"></div>
+          <div id="chips-competencias" style="margin-top:20px"></div>
+          <h3 class="sub-h">Idiomas</h3>
+          <div id="lista-idiomas"></div>
+          <h3 class="sub-h">Cursos e certificações</h3>
+          <div id="lista-cursos"></div>
+        </div>
+
+        <!-- ============ 6. PERFIL DE ACESSIBILIDADE ============ -->
+        <div class="panel-card">
+          <h2>Perfil de acessibilidade</h2>
+          <p class="privacidade">Informações privadas. As empresas só recebem as adaptações que você escolher ao se candidatar, nunca o diagnóstico nem o laudo.</p>
+          <fieldset>
+            <legend>Tipo de deficiência</legend>
+            <p class="hint-text" style="margin-bottom:8px">Marque o tipo e, em seguida, especifique qual é a sua condição.</p>
+            <div id="p-pcd"></div>
+          </fieldset>
+          <div id="laudo-box" class="cv-box" hidden>
+            <h3 class="sub-h" style="margin-top:0">Laudo médico em PDF (obrigatório)</h3>
+            <p class="hint-text" style="margin-bottom:10px">O laudo confirma sua condição para vagas afirmativas. É um dado sensível protegido pela LGPD: nenhuma empresa tem acesso a ele. Nesta versão de demonstração o arquivo fica somente neste navegador, e só é guardado por completo se tiver até 800 KB.</p>
+            <div id="laudo-info"></div>
+            <div id="laudo-status" class="form-status" role="status"></div>
+            <div class="form-group"><label for="laudo-arquivo">Enviar ou substituir o laudo (somente PDF, até 5 MB)</label><div class="input-wrap"><input type="file" id="laudo-arquivo" accept="application/pdf,.pdf"></div></div>
+          </div>
+          <fieldset><legend>Adaptações de que preciso no trabalho</legend><div id="p-needs"></div></fieldset>
+          <fieldset><legend>Como prefiro me comunicar</legend><div id="p-comm"></div></fieldset>
+        </div>
+
+        <!-- ============ 7. DIVERSIDADE (OPCIONAL) ============ -->
+        <div class="panel-card">
+          <h2>Diversidade <span class="tag" style="vertical-align:middle">Opcional</span></h2>
+          <p class="privacidade">Todas as perguntas abaixo são opcionais e você pode escolher "Prefiro não informar". Só usamos para indicar vagas afirmativas e gerar estatísticas sem identificar você. Nenhuma empresa vê estas respostas.</p>
+          <div class="form-group"><label for="d-trans">Você é uma pessoa trans ou travesti?</label><select id="d-trans"><option value="">Selecione</option><option>Sim</option><option>Não</option><option>Prefiro não informar</option></select></div>
+          <div class="form-group"><label for="d-genero">Identidade de gênero</label><select id="d-genero"><option value="">Selecione</option><option>Mulher cis</option><option>Homem cis</option><option>Mulher trans</option><option>Homem trans</option><option>Travesti</option><option>Pessoa não binária</option><option>Outra identidade</option><option>Prefiro não informar</option></select></div>
+          <div class="form-group"><label for="d-pronomes">Pronomes de tratamento</label><select id="d-pronomes"><option value="">Selecione</option><option>Ela/dela</option><option>Ele/dele</option><option>Elu/delu</option><option>Outros</option><option>Prefiro não informar</option></select></div>
+          <div class="form-group"><label for="d-orientacao">Orientação sexual</label><select id="d-orientacao"><option value="">Selecione</option><option>Heterossexual</option><option>Gay</option><option>Lésbica</option><option>Bissexual</option><option>Pansexual</option><option>Assexual</option><option>Outra</option><option>Prefiro não informar</option></select></div>
+          <div class="form-group"><label for="d-raca">Cor ou raça (categorias do IBGE)</label><select id="d-raca"><option value="">Selecione</option><option>Branca</option><option>Preta</option><option>Parda</option><option>Amarela</option><option>Indígena</option><option>Prefiro não informar</option></select></div>
+          <div class="check-row"><input type="checkbox" id="d-consent"><label for="d-consent">Autorizo o uso das respostas acima para me indicar vagas afirmativas e para estatísticas anônimas.</label></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar perfil</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ================= Footer ================= -->
+<footer class="rodape-cabecalho">
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2026 IncluiPro. Todos os direitos reservados.</span>
+      <div class="links"><a href="index.html">Página inicial</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= Botão flutuante de acessibilidade ================= -->
+<button class="botao-flutuante-acessibilidade" id="abrir-painel-acessibilidade" aria-haspopup="dialog" aria-expanded="false" aria-controls="painel-acessibilidade">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <circle cx="12" cy="4.5" r="1.6" fill="currentColor" stroke="none"/>
+    <path stroke-linecap="round" d="M4 8.5c2.7 1 5.3 1.5 8 1.5s5.3-.5 8-1.5M12 10v5M9 21l2-6h2l2 6M8.5 13.5L6 16M15.5 13.5L18 16"/>
+  </svg>
+  <span class="fab-text">Abrir opções de acessibilidade</span>
+</button>
+
+<div class="fundo-escurecido" id="fundo-escurecido"></div>
+<div class="painel-acessibilidade" id="painel-acessibilidade" role="dialog" aria-modal="true" aria-labelledby="titulo-painel-acessibilidade">
+  <div class="painel-acessibilidade-cabecalho">
+    <div>
+      <h2 id="titulo-painel-acessibilidade">Acessibilidade</h2>
+      <p>Ajuste o cabecalho do seu jeito</p>
+    </div>
+    <button class="botao-fechar-painel" id="botao-fechar-painel" aria-label="Fechar painel de acessibilidade">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="painel-acessibilidade-corpo">
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9v6M9 5v14M15 5v14M20 9v6"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Tamanho da letra</div>
+        <div class="item-descricao">Deixe o texto maior ou menor em todas as páginas.</div>
+        <div class="controle-tamanho-letra" role="group" aria-label="Ajustar tamanho da letra">
+          <button id="diminuir-letra" aria-label="Diminuir letra">A−</button>
+          <span class="valor-tamanho-letra" id="valor-letra">100%</span>
+          <button id="aumentar-letra" aria-label="Aumentar letra">A+</button>
+        </div>
+      </div>
+    </div>
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Alto contraste</div>
+        <div class="item-descricao">Fundo preto e texto amarelo, mais fácil de ler.</div>
+      </div>
+      <button class="interruptor item-controle" id="botao-contraste" aria-pressed="false" aria-label="Ativar alto contraste"></button>
+    </div>
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 11v4c0 2 4 4 9 4s9-2 9-4v-4"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Menos movimento</div>
+        <div class="item-descricao">Desliga animações e rolagem suave da página.</div>
+      </div>
+      <button class="interruptor item-controle" id="botao-movimento" aria-pressed="false" aria-label="Reduzir movimento"></button>
+    </div>
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v11M8 8a4 4 0 108 0M5 11a7 7 0 0014 0M9 21h6"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Ouvir a página</div>
+        <div class="item-descricao">O computador lê o conteúdo em voz alta, em português.</div>
+        <button class="botao-secundario" id="botao-ouvir" aria-pressed="false">🔊 Começar a ouvir</button>
+      </div>
+    </div>
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 11V7a5 5 0 0110 0v4M5 11h14l-1 10H6L5 11z"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Tradução em Libras</div>
+        <div class="item-descricao">Um intérprete virtual traduz o texto do site para Libras (VLibras).</div>
+        <button class="botao-secundario" id="botao-libras">🤟 Abrir tradutor de Libras</button>
+      </div>
+    </div>
+    <div class="item-acessibilidade" style="border-bottom:none;">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h1M9 10h1M12 10h1M15 10h1M6 14h9"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Atalhos do teclado</div>
+        <div class="item-descricao">Veja como navegar pelo cabecalho sem usar o mouse.</div>
+        <button class="botao-secundario" id="botao-atalhos">⌨ Ver atalhos</button>
+      </div>
+    </div>
+    <button class="botao-restaurar-padrao" id="botao-restaurar-padrao">Restaurar tudo ao padrão</button>
+  </div>
+</div>
+
+<div class="janela-fundo" id="janela-atalhos" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title">
+  <div class="janela-caixa">
+    <h2 id="shortcuts-title">Atalhos de teclado</h2>
+    <p class="hint">Use estes atalhos em qualquer parte da página.</p>
+    <div class="linha-atalho"><span>Abrir painel de acessibilidade</span><kbd>Alt + A</kbd></div>
+    <div class="linha-atalho"><span>Alternar alto contraste</span><kbd>Alt + C</kbd></div>
+    <div class="linha-atalho"><span>Ouvir a página</span><kbd>Alt + S</kbd></div>
+    <div class="linha-atalho"><span>Abrir esta ajuda</span><kbd>?</kbd></div>
+    <div class="linha-atalho"><span>Fechar janela aberta</span><kbd>Esc</kbd></div>
+    <button class="janela-fechar-botao" id="fechar-atalhos">Fechar</button>
+  </div>
+</div>
+
+<script src="js/nav.js?v=7"></script>
+<script src="js/script.js?v=7"></script>
+<script src="js/auth.js?v=7"></script>
+<script src="js/app.js?v=7"></script>
+<script src="js/perfil.js?v=7"></script>
+</body>
+</html>
