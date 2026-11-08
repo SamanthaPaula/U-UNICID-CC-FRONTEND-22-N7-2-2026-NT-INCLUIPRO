@@ -3,9 +3,9 @@
 > Desenvolvida pela equipe **Pixel Devs**
 ## 1. Identificação
 
-| Campo | Informação |
+| Campo | Informação 
 |---|---|
-| **Nome do projeto/site** | IncluiPro|
+| **Nome do site** | IncluiPro|
 | **Nome da equipe** | Pixel Devs |
 | **Disciplina** | Desenvolvimento front-end para web |
 | **Instituição** | Universidade Cidade de São Paulo — UNICID |
@@ -13,7 +13,7 @@
 
 ### Integrantes
 
-| Nº | Nome | Função na equipe |
+| Nº | Nome | RGM
 |---|---|---|
 | 1 | _ANA BEATRIZ MENDES GONÇALVES_ | __ |
 | 2 | _ARTHUR GABRIEL MARTINS DA COSTA_ | _preencher_ |
