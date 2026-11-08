@@ -367,5 +367,18 @@ flowchart TD
     K --> L[Acompanhar etapas simuladas]
     L --> M[Consultar mensagens demonstrativas]
 ```
+## 17. Diferenciais do projeto
 
+O IncluiPro procura colocar a **acessibilidade no centro da experiência de busca por emprego**, e não apenas como uma informação secundária. Destacam-se a ficha de acessibilidade de cada vaga, os filtros por adaptações disponíveis, a possibilidade de indicar necessidades durante a candidatura, os recursos de leitura e Libras e a apresentação de direitos relacionados à inclusão profissional.
+
+Esses diferenciais são características da proposta e da interface implementada; sua eficácia prática ainda precisa ser validada com usuários reais.
+
+## 18. Conclusão
+O IncluiPro demonstra como tecnologias web podem ser organizadas para criar uma experiência de busca por oportunidades profissionais com foco na inclusão de pessoas com deficiência. A versão analisada reúne múltiplos fluxos de navegação e interações em um protótipo front-end que pode apoiar apresentações, estudos e validações iniciais.
+
+Para evoluir de demonstração para serviço real, o principal próximo passo é desenvolver infraestrutura segura de dados e autenticação, seguida de integrações efetivas com empresas e avaliações de acessibilidade com o público-alvo.
+
+---
+
+**Documentação elaborada a partir da análise dos arquivos presentes em `PROJETO-IncluiPro-v6.zip` (versão fornecida em novembro de 2026).**
 
