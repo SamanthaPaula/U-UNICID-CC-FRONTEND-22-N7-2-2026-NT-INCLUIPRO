@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Limpar dados de teste | IncluiPro</title>
+<link rel="stylesheet" href="css/style.css?v=7">
+</head>
+<body>
+<!-- ==========================================================================
+     PÁGINA SÓ PARA TESTES (apague este arquivo antes de publicar o site).
+     Mostra as contas que estão salvas NESTE navegador (localStorage) e deixa
+     apagar uma conta ou tudo, para você poder cadastrar o mesmo e-mail de novo.
+     ========================================================================== -->
+<main id="main-content" style="max-width:720px;margin:40px auto;padding:0 20px;">
+  <h1 class="auth-title">Dados de teste deste navegador</h1>
+  <p class="auth-sub">As contas do IncluiPro ficam salvas aqui, no navegador (localStorage), porque o site ainda não tem banco de dados. Por isso um e-mail já cadastrado continua "ocupado" nos próximos testes.</p>
+  <div id="msg" class="form-status" role="status"></div>
+  <div class="panel-card" style="margin-bottom:20px"><h2>Contas cadastradas</h2><ul id="lista" class="lista-limpa"></ul></div>
+  <button type="button" class="btn btn-primary" id="apagar-tudo">Apagar TUDO (contas, perfis, candidaturas, sessão)</button>
+  <p style="margin-top:16px"><a href="index.html"><u>Voltar para o site</u></a></p>
+</main>
+<script>
+/* Todas as "gavetas" do site começam com "incluipro_" */
+function chaves() { var r = []; for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k.indexOf('incluipro_') === 0) r.push(k); } return r; }
+function aviso(t) { var m = document.getElementById('msg'); m.className = 'form-status show status-success'; m.textContent = t; }
+
+function desenhar() {
+  var users = []; try { users = JSON.parse(localStorage.getItem('incluipro_users') || '[]'); } catch (e) {}
+  var ul = document.getElementById('lista');
+  ul.innerHTML = users.length ? '' : '<li>Nenhuma conta salva neste navegador.</li>';
+  users.forEach(function (u) {
+    var li = document.createElement('li'); li.style.cssText = 'display:flex;justify-content:space-between;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #ddd';
+    var t = document.createElement('span'); t.textContent = u.nome + ' — ' + u.email;
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'botao-secundario'; b.style.margin = '0'; b.textContent = 'Apagar esta conta';
+    b.onclick = function () {
+      /* remove a conta da lista e todos os dados dela (perfil, candidaturas, mensagens...) */
+      var rest = users.filter(function (x) { return x.email !== u.email; });
+      localStorage.setItem('incluipro_users', JSON.stringify(rest));
+      chaves().forEach(function (k) { if (k.slice(-u.email.length) === u.email) localStorage.removeItem(k); });
+      if (localStorage.getItem('incluipro_session') === u.email) localStorage.removeItem('incluipro_session');
+      aviso('Conta ' + u.email + ' apagada. Você já pode cadastrá-la de novo.'); desenhar();
+    };
+    li.appendChild(t); li.appendChild(b); ul.appendChild(li);
+  });
+}
+document.getElementById('apagar-tudo').onclick = function () {
+  if (!confirm('Apagar todas as contas e dados do IncluiPro deste navegador?')) return;
+  chaves().forEach(function (k) { localStorage.removeItem(k); });
+  aviso('Tudo apagado.'); desenhar();
+};
+desenhar();
+</script>
+</body>
+</html>
