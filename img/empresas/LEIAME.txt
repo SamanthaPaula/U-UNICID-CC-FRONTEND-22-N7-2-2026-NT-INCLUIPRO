@@ -1,0 +1,10 @@
+LOGOS DAS EMPRESAS
+Os arquivos .svg desta pasta sao PROVISORIOS (criados por nos, em cores parecidas com as da marca). NAO sao as logos oficiais.
+O site tenta, nesta ordem:
+  1) img/empresas/<id>.png   <- coloque aqui a logo OFICIAL (PNG quadrado ~256x256) e ela passa a ser usada
+  2) maior icone do site da empresa (internet)
+  3) favicon do Google (internet)
+  4) img/empresas/<id>.svg   <- os provisorios desta pasta (funcionam sem internet)
+  5) letra inicial
+Nomes dos PNG oficiais: nubank.png ifood.png totvs.png ambev.png itau.png magazine-luiza.png mercado-livre.png vivo.png
+Onde conseguir: site da empresa > pagina de Imprensa/Marca, ou clique direito na logo > salvar imagem.
