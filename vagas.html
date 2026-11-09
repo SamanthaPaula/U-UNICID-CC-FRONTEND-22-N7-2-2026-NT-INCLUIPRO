@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vagas inclusivas | IncluiPro</title>
+<meta name="description" content="Vagas com ficha de acessibilidade, filtros por tipo de deficiência e adaptações oferecidas pelas empresas.">
+<meta name="theme-color" content="#2446A8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=7">
+<script>/* IncluiPro: Vagas, Empresas e Leis só abrem com login */
+(function(){try{var e=localStorage.getItem('incluipro_session'),u=JSON.parse(localStorage.getItem('incluipro_users')||'[]');
+if(!e||!u.some(function(x){return x.email===e})){document.documentElement.style.visibility='hidden';
+location.replace('entrar.html?next='+encodeURIComponent((location.pathname.split('/').pop()||'index.html')+location.search));}}catch(x){}})();</script>
+</head>
+<body data-page="vagas" data-protegida>
+
+<a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+<div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
+
+<!-- ================= Header ================= -->
+<header class="cabecalho">
+  <div class="wrap cabecalho-linha">
+    <a href="index.html" class="logo">
+      <span class="logo-icone" aria-hidden="true">i+</span>
+      <span>Inclui<span class="logo-destaque">Pro</span></span>
+    </a>
+    <nav class="menu-principal" aria-label="Navegação principal">
+      <a href="vagas.html" aria-current="page">Vagas</a>
+      <a href="index.html#empresas">Empresas</a>
+      <a href="index.html#leis-pcd">Leis e direitos PcD</a>
+      <a href="index.html#como-funciona">Como funciona</a>
+    </nav>
+    <div class="botoes-topo">
+      <a href="entrar.html" class="btn btn-ghost">Entrar</a>
+      <a href="cadastro.html" class="btn btn-primary">Cadastrar grátis</a>
+    </div>
+    <button class="botao-menu botao-secundario" id="botao-menu" style="margin-top:0;" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-celular">☰ Menu</button>
+  </div>
+  <nav class="menu-celular" id="menu-celular" aria-label="Navegação móvel">
+    <a href="vagas.html">Vagas</a>
+    <a href="index.html#empresas">Empresas</a>
+    <a href="cadastro.html" class="btn btn-primary">Cadastrar grátis</a>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section style="padding:40px 0 28px;background:var(--color-surface-soft);border-top:none;">
+    <div class="wrap">
+      <span class="eyebrow">Vagas inclusivas</span>
+      <h1 class="auth-title" style="font-size:clamp(1.7rem,3vw,2.4rem);">Vagas que já nascem acessíveis</h1>
+      <p class="auth-sub" style="max-width:620px;">Antes de se candidatar, veja quais adaptações a empresa realmente oferece e quais são compatíveis com as suas necessidades.</p>
+      <form class="search-row" role="search" id="form-busca" style="margin-bottom:0;">
+        <label for="q">Buscar cargo, empresa ou habilidade</label>
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input id="q" type="search" placeholder="Cargo, empresa ou habilidade…">
+        </div>
+        <button type="submit" class="btn btn-amber">Buscar vagas</button>
+      </form>
+    </div>
+  </section>
+  <section id="recomendadas" aria-labelledby="reco-title" hidden style="padding:32px 0 0;">
+    <div class="wrap">
+      <h2 class="emp-h" id="reco-title" style="margin-top:0">Recomendadas para o seu perfil</h2>
+      <div id="reco-msg"></div>
+      <div id="reco-lista" class="jobs-grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));"></div>
+    </div>
+  </section>
+  <section style="padding:32px 0 72px;">
+    <div class="wrap vagas-layout">
+      <aside aria-label="Filtros de vagas">
+        <form class="filtros" id="filtros" onsubmit="return false;">
+          <fieldset><legend>Tipo de deficiência aceita</legend><div id="f-pcd"></div></fieldset>
+          <fieldset><legend>Adaptações oferecidas</legend><div id="f-feat"></div></fieldset>
+          <fieldset><legend>Modelo de trabalho</legend><div id="f-modo"></div></fieldset>
+          <button type="button" class="botao-secundario" id="limpar-filtros" style="margin-top:0;">Limpar filtros</button>
+        </form>
+      </aside>
+      <div>
+        <div class="resultado-topo">
+          <p id="contagem" role="status" aria-live="polite"></p>
+          <div><label for="ordem" style="font-weight:700;font-size:.88rem;margin-right:8px;">Ordenar por</label>
+            <select id="ordem"><option value="recentes">Mais recentes</option><option value="compat">Mais compatíveis comigo</option><option value="salario">Maior salário</option></select></div>
+        </div>
+        <div id="lista-vagas" class="jobs-grid" style="grid-template-columns:1fr;"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= Footer ================= -->
+<footer class="rodape-cabecalho">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo logo-rodape"><span class="logo-icone" aria-hidden="true">i+</span><span>Inclui<span class="logo-destaque">Pro</span></span></div>
+        <p style="font-size:0.9rem;color:var(--color-muted);">Conectando talentos PCD a empresas que praticam inclusão de verdade — em uma plataforma pensada para ser usada por qualquer pessoa, de qualquer forma.</p>
+      </div>
+      <div><h4>Para profissionais</h4><ul><li><a href="vagas.html">Buscar vagas</a></li><li><a href="empresas.html">Empresas</a></li><li><a href="perfil.html">Criar perfil</a></li><li><a href="como-funciona.html">Como funciona</a></li></ul></div>
+      <div><h4>PIXEL DEVS</h4><ul><li><a href="sobre.html">Sobre nós</a></li><li><a href="sobre.html#contato">Entrar em contato</a></li><li><a href="sobre.html#integrantes">Integrantes</a></li><li><a href="sobre.html#projeto">Sobre o projeto</a></li></ul></div>
+      <div><h4>Acessibilidade e direitos</h4><ul><li><a href="leis.html">Leis e direitos PcD</a></li><li><a href="leis.html#acessibilidade">Recursos disponíveis</a></li><li><a href="leis.html#declaracao">Declaração de acessibilidade</a></li><li><a href="sobre.html?assunto=barreira#contato">Reportar barreira</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 IncluiPro. Todos os direitos reservados.</span>
+      <div class="links"><a href="sobre.html#contato">Fale com o suporte</a><a href="como-funciona.html#privacidade">Privacidade</a><a href="como-funciona.html#termos">Termos</a><a href="leis.html#declaracao">Acessibilidade</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= Botão flutuante de acessibilidade ================= -->
+<button class="botao-flutuante-acessibilidade" id="abrir-painel-acessibilidade" aria-haspopup="dialog" aria-expanded="false" aria-controls="painel-acessibilidade">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <circle cx="12" cy="4.5" r="1.6" fill="currentColor" stroke="none"/>
+    <path stroke-linecap="round" d="M4 8.5c2.7 1 5.3 1.5 8 1.5s5.3-.5 8-1.5M12 10v5M9 21l2-6h2l2 6M8.5 13.5L6 16M15.5 13.5L18 16"/>
+  </svg>
+  <span class="fab-text">Abrir opções de acessibilidade</span>
+</button>
+
+<div class="fundo-escurecido" id="fundo-escurecido"></div>
+<div class="painel-acessibilidade" id="painel-acessibilidade" role="dialog" aria-modal="true" aria-labelledby="titulo-painel-acessibilidade">
+  <div class="painel-acessibilidade-cabecalho">
+    <div>
+      <h2 id="titulo-painel-acessibilidade">Acessibilidade</h2>
+      <p>Ajuste o site do seu jeito</p>
+    </div>
+    <button class="botao-fechar-painel" id="botao-fechar-painel" aria-label="Fechar painel de acessibilidade">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="painel-acessibilidade-corpo">
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9v6M9 5v14M15 5v14M20 9v6"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Tamanho da letra</div>
+        <div class="item-descricao">Deixe o texto maior ou menor em todas as páginas.</div>
+        <div class="controle-tamanho-letra" role="group" aria-label="Ajustar tamanho da letra">
+          <button id="diminuir-letra" aria-label="Diminuir letra">A−</button>
+          <span class="valor-tamanho-letra" id="valor-letra">100%</span>
+          <button id="aumentar-letra" aria-label="Aumentar letra">A+</button>
+        </div>
+      </div>
+    </div>
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Alto contraste</div>
+        <div class="item-descricao">Fundo preto e texto amarelo, mais fácil de ler.</div>
+      </div>
+      <button class="interruptor item-controle" id="botao-contraste" aria-pressed="false" aria-label="Ativar alto contraste"></button>
+    </div>
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 11v4c0 2 4 4 9 4s9-2 9-4v-4"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Menos movimento</div>
+        <div class="item-descricao">Desliga animações e rolagem suave da página.</div>
+      </div>
+      <button class="interruptor item-controle" id="botao-movimento" aria-pressed="false" aria-label="Reduzir movimento"></button>
+    </div>
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v11M8 8a4 4 0 108 0M5 11a7 7 0 0014 0M9 21h6"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Ouvir a página</div>
+        <div class="item-descricao">O computador lê o conteúdo em voz alta, em português.</div>
+        <button class="botao-secundario" id="botao-ouvir" aria-pressed="false">🔊 Começar a ouvir</button>
+      </div>
+    </div>
+    <div class="item-acessibilidade">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 11V7a5 5 0 0110 0v4M5 11h14l-1 10H6L5 11z"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Tradução em Libras</div>
+        <div class="item-descricao">Um intérprete virtual traduz o texto do site para Libras (VLibras).</div>
+        <button class="botao-secundario" id="botao-libras">🤟 Abrir tradutor de Libras</button>
+      </div>
+    </div>
+    <div class="item-acessibilidade" style="border-bottom:none;">
+      <div class="item-icone" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h1M9 10h1M12 10h1M15 10h1M6 14h9"/></svg></div>
+      <div class="item-texto">
+        <div class="item-titulo">Atalhos do teclado</div>
+        <div class="item-descricao">Veja como navegar pelo site sem usar o mouse.</div>
+        <button class="botao-secundario" id="botao-atalhos">⌨ Ver atalhos</button>
+      </div>
+    </div>
+    <button class="botao-restaurar-padrao" id="botao-restaurar-padrao">Restaurar tudo ao padrão</button>
+  </div>
+</div>
+
+<div class="janela-fundo" id="janela-atalhos" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title">
+  <div class="janela-caixa">
+    <h2 id="shortcuts-title">Atalhos de teclado</h2>
+    <p class="hint">Use estes atalhos em qualquer parte da página.</p>
+    <div class="linha-atalho"><span>Abrir painel de acessibilidade</span><kbd>Alt + A</kbd></div>
+    <div class="linha-atalho"><span>Alternar alto contraste</span><kbd>Alt + C</kbd></div>
+    <div class="linha-atalho"><span>Ouvir a página</span><kbd>Alt + S</kbd></div>
+    <div class="linha-atalho"><span>Abrir esta ajuda</span><kbd>?</kbd></div>
+    <div class="linha-atalho"><span>Fechar janela aberta</span><kbd>Esc</kbd></div>
+    <button class="janela-fechar-botao" id="fechar-atalhos">Fechar</button>
+  </div>
+</div>
+
+<div class="janela-fundo" id="janela-vaga" role="dialog" aria-modal="true" aria-labelledby="vaga-titulo">
+  <div class="janela-caixa janela-larga" id="vaga-conteudo"></div>
+</div>
+<script src="js/nav.js?v=7"></script>
+<script src="js/script.js?v=7"></script>
+<script src="js/auth.js?v=7"></script>
+<script src="js/app.js?v=7"></script>
+</body>
+</html>
