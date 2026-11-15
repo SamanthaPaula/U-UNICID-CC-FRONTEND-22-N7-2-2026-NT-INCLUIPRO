@@ -164,6 +164,8 @@ var INCLUIPRO_EMAIL = {
     'hotmail.con': 'hotmail.com', 'hotmail.co': 'hotmail.com', 'hotmial.com': 'hotmail.com',
     'outlook.con': 'outlook.com', 'yahoo.con': 'yahoo.com'
   };
+  var SUFIXOS_SEM_PROVEDOR = ['com', 'net', 'org', 'gov', 'edu', 'mil', 'info', 'biz', 'br',
+    'com.br', 'net.br', 'org.br', 'gov.br', 'edu.br', 'mil.br', 'art.br', 'eti.br', 'ind.br', 'tur.br', 'adv.br', 'blog.br', 'app.br', 'dev.br'];
   function emailErro(email) {
     var v = String(email || '').trim();
     if (!v) return 'Digite seu e-mail.';
@@ -176,6 +178,11 @@ var INCLUIPRO_EMAIL = {
         !/^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/.test(dominio)) {
       return 'Digite um e-mail válido (exemplo: nome@gmail.com).';
     }
+    /* O que vem depois do @ não pode ser só uma terminação (com.br, gov.br, com...): falta o provedor */
+    if (SUFIXOS_SEM_PROVEDOR.indexOf(dominio) !== -1) {
+      return 'Falta o nome do provedor depois do @ (exemplo: ' + local + '@gmail.com).';
+    }
+    if (dominio.split('.')[0].length < 2) return 'O domínio do e-mail parece incompleto (exemplo: nome@gmail.com).';
     if (DOMINIOS_ERRADOS[dominio]) {
       return 'Esse domínio parece estar errado. Você quis dizer ' + local + '@' + DOMINIOS_ERRADOS[dominio] + '?';
     }
