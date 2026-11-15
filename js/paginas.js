@@ -164,8 +164,9 @@ document.addEventListener('DOMContentLoaded', function () {
       var campos = [['ct-nome', 'err-ct-nome', 'Informe seu nome.'], ['ct-email', 'err-ct-email', 'Informe um e-mail válido.'], ['ct-msg', 'err-ct-msg', 'Escreva sua mensagem.']];
       var ok = true;
       campos.forEach(function (c2) {
-        var el = $(c2[0]), v = el.value.trim(), bad = !v || (c2[0] === 'ct-email' && !/^\S+@\S+\.\S+$/.test(v));
-        $(c2[1]).textContent = bad ? c2[2] : '';
+        var el = $(c2[0]), v = el.value.trim(), bad = !v, msgE = '';
+        if (c2[0] === 'ct-email' && window.IPEmail) { msgE = IPEmail.validar(v); bad = !!msgE; }
+        $(c2[1]).textContent = bad ? (msgE || c2[2]) : '';
         if (bad && ok) { el.focus(); ok = false; } else if (bad) ok = false;
       });
       if (!ok) { say('Há campos para corrigir.'); return; }

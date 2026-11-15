@@ -153,12 +153,36 @@ var INCLUIPRO_EMAIL = {
     });
   }
   /* Deixa o envio disponível para outras páginas (o formulário de contato usa isto) */
-  window.IPEmail = { config: INCLUIPRO_EMAIL, pronto: emailConfigured, enviar: enviarEmail, explicar: explicarErroEmail };
+  window.IPEmail = { validar: function (e) { return emailErro(e); }, config: INCLUIPRO_EMAIL, pronto: emailConfigured, enviar: enviarEmail, explicar: explicarErroEmail };
 
-  /* Confere se o e-mail tem o formato nome@dominio.com */
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  /* Valida o e-mail e devolve a mensagem de erro (ou '' se estiver tudo certo).
+     Regras: sem espaços, SOMENTE letras minúsculas (SAMANTHA@GMAIL.BR é recusado),
+     formato nome@dominio.ext e recusa erros comuns de digitação (gmail.br, gmail.con...). */
+  var DOMINIOS_ERRADOS = {
+    'gmail.br': 'gmail.com', 'gmail.com.br': 'gmail.com', 'gmail.con': 'gmail.com', 'gmail.co': 'gmail.com',
+    'gmial.com': 'gmail.com', 'gmai.com': 'gmail.com', 'gmail.cm': 'gmail.com',
+    'hotmail.con': 'hotmail.com', 'hotmail.co': 'hotmail.com', 'hotmial.com': 'hotmail.com',
+    'outlook.con': 'outlook.com', 'yahoo.con': 'yahoo.com'
+  };
+  function emailErro(email) {
+    var v = String(email || '').trim();
+    if (!v) return 'Digite seu e-mail.';
+    if (/\s/.test(v)) return 'O e-mail não pode ter espaços.';
+    if (/[A-Z]/.test(v)) return 'Use apenas letras minúsculas no e-mail (exemplo: nome@gmail.com).';
+    var partes = v.split('@');
+    if (partes.length !== 2) return 'Digite um e-mail válido, com um único @ (exemplo: nome@gmail.com).';
+    var local = partes[0], dominio = partes[1];
+    if (!/^[a-z0-9]+([._%+-][a-z0-9]+)*$/.test(local) ||
+        !/^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/.test(dominio)) {
+      return 'Digite um e-mail válido (exemplo: nome@gmail.com).';
+    }
+    if (DOMINIOS_ERRADOS[dominio]) {
+      return 'Esse domínio parece estar errado. Você quis dizer ' + local + '@' + DOMINIOS_ERRADOS[dominio] + '?';
+    }
+    return '';
   }
+  function isValidEmail(email) { return emailErro(email) === ''; }
+  window.IPEmailErro = emailErro;
 
   function passwordStrength(pw) {
     var score = 0;
@@ -193,6 +217,17 @@ var INCLUIPRO_EMAIL = {
     }
   }
 
+
+    /* Mostra o erro do e-mail assim que a pessoa sai do campo */
+    function validarEmailAoSair(inputId, erroId) {
+      var inp = document.getElementById(inputId);
+      if (!inp) return;
+      inp.addEventListener('blur', function () {
+        if (!inp.value.trim()) return;
+        setFieldError(inp.closest('.form-group'), document.getElementById(erroId), inp, emailErro(inp.value));
+      });
+    }
+
   function announce(msg) {
     var announcer = document.getElementById('announcer');
     if (!announcer) return;
@@ -216,6 +251,7 @@ var INCLUIPRO_EMAIL = {
     if (!form) return;
     var status = document.getElementById('cadastro-status');
 
+    validarEmailAoSair('cad-email', 'err-email');
     var pwInput = document.getElementById('cad-senha');
     var pwToggle = document.getElementById('toggle-senha');
     var strengthBar = document.getElementById('pw-strength');
@@ -243,7 +279,7 @@ var INCLUIPRO_EMAIL = {
       var confirmar = document.getElementById('cad-confirmar');
 
       var nomeVal = nome.value.trim();
-      var emailVal = email.value.trim().toLowerCase();
+      var emailVal = email.value.trim();
       var senhaVal = senha.value;
       var confirmarVal = confirmar.value;
       var ok = true;
@@ -251,7 +287,7 @@ var INCLUIPRO_EMAIL = {
       setFieldError(nome.closest('.form-group'), document.getElementById('err-nome'), nome,
         nomeVal.length < 2 ? (ok = false, 'Digite seu nome completo.') : '');
       setFieldError(email.closest('.form-group'), document.getElementById('err-email'), email,
-        !isValidEmail(emailVal) ? (ok = false, 'Digite um e-mail válido.') : '');
+        emailErro(emailVal) ? (ok = false, emailErro(emailVal)) : '');
       setFieldError(senha.closest('.form-group'), document.getElementById('err-senha'), senha,
         senhaVal.length < 8 ? (ok = false, 'A senha precisa ter no mínimo 8 caracteres.') : '');
       setFieldError(confirmar.closest('.form-group'), document.getElementById('err-confirmar'), confirmar,
@@ -463,6 +499,7 @@ var INCLUIPRO_EMAIL = {
      se estiver certo, grava a sessão e volta para a página de origem (?next=). */
   function initEntrar() {
     var form = document.getElementById('form-entrar');
+    validarEmailAoSair('login-email', 'err-login-email');
     if (!form) return;
     var status = document.getElementById('entrar-status');
 
@@ -491,11 +528,11 @@ var INCLUIPRO_EMAIL = {
 
       var email = document.getElementById('login-email');
       var senha = document.getElementById('login-senha');
-      var emailVal = email.value.trim().toLowerCase();
+      var emailVal = email.value.trim();
       var senhaVal = senha.value;
 
       setFieldError(email.closest('.form-group'), document.getElementById('err-login-email'), email,
-        !isValidEmail(emailVal) ? 'Digite um e-mail válido.' : '');
+        emailErro(emailVal));
       setFieldError(senha.closest('.form-group'), document.getElementById('err-login-senha'), senha,
         senhaVal.length === 0 ? 'Digite sua senha.' : '');
 

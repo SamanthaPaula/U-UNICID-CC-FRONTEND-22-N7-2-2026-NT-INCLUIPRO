@@ -213,12 +213,31 @@
 
   /* ---------- Steps interactivity ---------- */
   var stepCards = document.querySelectorAll('.step-card');
+  function ativarPasso(card) {
+    stepCards.forEach(function (c) { c.classList.remove('active'); c.removeAttribute('aria-current'); });
+    card.classList.add('active');
+    card.setAttribute('aria-current', 'true');
+  }
   stepCards.forEach(function (card) {
-    card.addEventListener('click', function () {
-      stepCards.forEach(function (c) { c.classList.remove('active'); });
-      card.classList.add('active');
+    card.addEventListener('click', function () { ativarPasso(card); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ativarPasso(card); }
     });
   });
+
+  /* ---------- Vídeo: se o arquivo ainda não estiver na pasta, mostra um aviso no lugar ---------- */
+  var videoFrame = document.getElementById('video-frame');
+  if (videoFrame) {
+    var videoEl = videoFrame.querySelector('video');
+    var fontes = videoEl ? videoEl.querySelectorAll('source') : [];
+    var falhas = 0;
+    fontes.forEach(function (src) {
+      src.addEventListener('error', function () {
+        falhas++;
+        if (falhas >= fontes.length) videoFrame.classList.add('sem-video');
+      });
+    });
+  }
 
   /* ---------- Global keyboard shortcuts ---------- */
   document.addEventListener('keydown', function (e) {
