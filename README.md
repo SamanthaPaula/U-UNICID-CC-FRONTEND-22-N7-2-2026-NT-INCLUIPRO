@@ -35,7 +35,7 @@ O projeto reúne páginas institucionais, cadastro de usuário, autenticação d
 Pessoas com deficiência podem encontrar barreiras na busca por emprego, incluindo descrições de vagas que não informam adaptações disponíveis, dificuldades de navegação, pouca transparência sobre as etapas seletivas e falta de um espaço centralizado para apresentar necessidades de acessibilidade.
 
 O IncluiPro propõe uma experiência que evidencia as condições de acessibilidade da oportunidade, permite registrar adaptações solicitadas na candidatura e oferece recursos de navegação assistiva. O propósito é apoiar uma busca de emprego mais informada e inclusiva.
-
+<br>
 ## 4. Objetivos
 
 ### Objetivo geral
