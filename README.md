@@ -52,7 +52,7 @@ Desenvolver uma interface web acessível para facilitar a consulta de vagas incl
 - Exibir uma simulação de acompanhamento de etapas e conversas.
 - Disponibilizar controles de acessibilidade e informações sobre direitos PcD.
 - Organizar a interface para telas de diferentes tamanhos.
-
+<br> <br>
 ## 5. Público-alvo
 
 **Público principal:** pessoas com deficiência que buscam oportunidades de emprego, com ou sem experiência profissional.
@@ -65,7 +65,7 @@ Tipos de deficiência considerados na plataforma:
 - Deficiência intelectual
 - Autismo (TEA)
 - Deficiência múltipla-
-
+<br> <br>
 
 ## 6. Tecnologias e arquitetura
 
